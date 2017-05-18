@@ -1,0 +1,27 @@
+ /* #labelRequired
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-labelRequired
+category: Atoms
+tag: Form
+---
+
+必須を示すラベルです。
+
+```jade
+label.a-labelRequired.a-formInput_textTop(for="required1") 必須
+input.a-formInput(type="email" name="email" autocomplete="email" id="required1" placeholder="例：example@gmail.com" required)
+```
+*/
+.a-labelRequired {
+  @include a-label();
+  border-color: #f00;
+  color: #fff;
+  background-color: #f00;
+
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}

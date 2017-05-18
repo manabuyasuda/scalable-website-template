@@ -1,0 +1,36 @@
+ /* #heading3
+   -------------------------------------------------------------------------- */
+/*
+---
+name: a-heading3
+category: Atoms
+tag: Heading
+---
+
+`<h3>`で使われるような見出しのスタイルです。
+
+```jade
+h3.a-heading3 h3見出しです
+```
+
+`a-heading3()`mixinでスタイルを継承することができます。
+
+```scss
+.anotherHeading3 {
+  @include a-heading3();
+}
+```
+*/
+@mixin a-heading3() {
+  padding: 0.5em;
+  border-left: 5px solid #0a41a6;
+  font-size: 1.2em;
+  font-weight: $font-weight-bold;
+  line-height: 1.4;
+  background-color: #f3f3f3;
+}
+
+.a-heading3 {
+  @include a-heading3();
+  margin-bottom: 0.8rem;
+}

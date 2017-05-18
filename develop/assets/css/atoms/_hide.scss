@@ -1,0 +1,40 @@
+ /* #hide
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-hide
+category: Atoms
+tag: Text
+---
+
+`<br>`タグに指定をして、改行位置をブレイクポイントごとに切り替えます。
+
+```jade
+p 常に
+  br.a-hide
+  | 改行されません
+
+p 768px以上で
+  br.a-hideMd
+  | 改行されません
+
+p 1080px以上で
+  br.a-hideLg
+  | 改行されません
+```
+*/
+.a-hide {
+  display: none;
+}
+
+.a-hideMd {
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.a-hideLg {
+  @include mq(lg) {
+    display: none;
+  }
+}

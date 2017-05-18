@@ -1,0 +1,72 @@
+ /* #searchForm
+   -------------------------------------------------------------------------- */
+/*
+---
+name: m-searchForm
+category: Molecules
+tag: Form
+---
+
+検索フォームです。
+
+```jade
+form.m-searchForm(action="/result.html")
+  fieldset.m-searchForm_inner
+    .m-searchForm_input
+      input(type="search" name="q" id="m-searchForm_input1" placeholder="keywords…")
+    .m-searchForm_button
+      button.a-buttonSearch(type="submit" value="検索") 検索
+```
+
+```jade
+form.m-searchForm(action="/result.html")
+  fieldset.m-searchForm_inner
+    .m-searchForm_input
+      input(disabled type="search" name="q" id="m-searchForm__input2" placeholder="keywords…")
+    .m-searchForm_button
+      button.a-buttonSearch(disabled type="submit" value="検索") 検索
+```
+*/
+.m-searchForm {
+}
+
+.m-searchForm_inner {
+  @include clearfix();
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: auto;
+}
+
+.m-searchForm_input {
+  width: calc(100% - 5em);
+  padding-right: 1em;
+  float: left;
+
+  @include mq() {
+    width: calc(100% - 7em);
+  }
+}
+
+.m-searchForm_input > input {
+  @include a-formInput();
+}
+
+.m-searchForm_button {
+  width: 5em;
+  float: left;
+
+  @include mq() {
+    width: 7em;
+  }
+}
+
+.m-searchForm_button > .a-buttonSearch {
+  display: block;
+  width: 100%;
+  height: 42px;
+  padding-right: 1em;
+  padding-left: 1em;
+}

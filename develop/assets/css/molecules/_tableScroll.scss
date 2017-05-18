@@ -1,0 +1,56 @@
+ /* #tableScroll
+   -------------------------------------------------------------------------- */
+/*
+---
+name: m-tableScroll
+category: Molecules
+tag: List
+---
+
+横スクロール可能なテーブルです。
+
+```jade
+.m-table.m-tableScroll
+  table
+    caption
+      p 事業部ごとの売上額と構成比
+    thead
+      tr
+        th.u-col-4of12.u-col-2of12-md(scope="col") 事業部名
+        th.u-col-4of12.u-col-5of12-md(scope="col") 売上額
+          sup#ref02
+            a.a-link.a-linkNote(href="#note02") 1
+        th.u-col-4of12.u-col-5of12-md(scope="col") 構成比
+    tbody
+      tr
+        th(scope="row") ○○事業部
+        td.m-table_number ○○○億円
+        td.m-table_number ○○%
+      tr
+        th(scope="row") △△事業部
+        td.m-table_number △△億円
+        td.m-table_number △△%
+      tr
+        th(scope="row") □□事業部
+        td.m-table_number □億円
+        td.m-table_number □%
+  ul.m-table_note.a-listNoteOrder
+    li#note02 売上額の注釈です。
+      a.a-link(href="#ref02")
+```
+*/
+.m-tableScroll {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  min-height: 0.01%;
+}
+
+.m-tableScroll th,
+.m-tableScroll td {
+  white-space: nowrap;
+}
+
+.m-tableScroll .m-table_number {
+  text-align: right;
+}

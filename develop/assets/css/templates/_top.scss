@@ -1,0 +1,41 @@
+ /* #top
+   -------------------------------------------------------------------------- */
+/*
+---
+name: t-top
+category: Templates
+---
+
+サイトトップページのレイアウトです。1カラムレイアウトです。
+
+```jade
+.t-top
+  .t-top_header
+    p ヘッダー
+
+    .t-top_hero
+      p メインビジュアル
+
+  .t-top_breadcrumb
+    p パンくずリスト
+
+  .t-top_content
+    p メインコンテンツ
+
+  .t-top_footer
+    p フッター
+```
+*/
+.t-top {}
+.t-top_inner {
+  display: block;
+  width: 100%;
+  max-width: $max-width;
+  margin-right: auto;
+  margin-left: auto;
+}
+.t-top_header {}
+.t-top_hero {}
+.t-top_breadcrumb {}
+.t-top_contents {}
+.t-top_footer {}

@@ -1,0 +1,76 @@
+ /* #button
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-button
+category: Atoms
+tag: [Button, Link, Form]
+---
+
+ボタンのベーススタイルです。
+
+クリック、タップ、キーボード操作（Macの場合は、tabやtab + shiftでフォーカスの移動）で正常に動作することを確認してください。
+
+```jade
+a.a-button(href="#") aタグボタン
+button.a-button(type="button") buttonタグボタン
+input.a-button(type="button" value="inputボタン")
+```
+
+非活性状態です。`<a>`タグには`.a-button-disabled`を、それ以外の`<button>`タグと`<input>`タグには`disabled`属性を指定します。
+
+```jade
+a.a-button.a-button-disabled(href="#") aタグボタン
+button.a-button(type="button" disabled) buttonタグボタン
+input.a-button(type="button" value="inputボタン" disabled)
+```
+
+`a-button()`mixinで他のボタンにもスタイルを継承することができます。
+
+```scss
+.a-anotherButton {
+  @include a-button();
+}
+```
+*/
+@mixin a-button() {
+  display: inline-block;
+  margin: 0;
+  padding: 0.75em 2em;
+  border: none;
+  border: 1px solid #d0d0d0;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  background: transparent;
+  background-color: #fff;
+  appearance: none;
+  cursor: pointer;
+
+  @include onEvent() {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: $form-focus-box-shadow;
+  }
+
+  &:disabled,
+  &-disabled {
+    opacity: $form-disabled-opacity;
+    border-color: $form-disabled-background-color;
+    background-color: $form-disabled-background-color;
+    cursor: $form-disabled-cursor;
+  }
+  &-disabled {
+    pointer-events: none;
+  }
+}
+
+.a-button {
+  @include a-button();
+}

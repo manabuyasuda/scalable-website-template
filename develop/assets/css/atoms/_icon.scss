@@ -1,0 +1,84 @@
+ /* #icon
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-icon
+category: Atoms
+tag: Icon
+---
+
+アイコンフォントを使ったアイコンを表示します。デフォルトでは`:before`擬似要素で表示されます。`<span>`タグで指定します。
+
+`content`プロパティの値（例：`"\EA01"`）がスクリーンリーダーで読み上げられてしまい、ユーザーを混乱させることがないように、`aria-hidden="true"`を指定して読み上げられないようにします。もし、そのアイコンの役割を示したい場合は、アイコンの前後にテキスト要素を記述するか、`aria-label`属性にアイコンの役割を記述するようにします。
+
+```jade
+p More
+  span.a-icon-linkMore(aria-hidden="true")
+```
+
+`a-icon()`mixinでベーススタイルを生成することもできます。
+表示するアイコンは変数化しているものを`content`内に指定してください。
+
+```scss
+.anotherIcon {
+  @include a-icon();
+}
+```
+*/
+@font-face {
+  font-family: "iconfont";
+  src: url('../font/iconfont.eot');
+  src: url('../font/iconfont.eot?#iefix') format('eot'),
+    url('../font/iconfont.woff') format('woff'),
+    url('../font/iconfont.ttf') format('truetype'),
+    url('../font/iconfont.svg#iconfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// アイコンフォントのベーススタイルです。
+@mixin a-icon {
+  font-family: "iconfont";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  top: -0.1em;
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: none;
+  speak: none;
+}
+
+// アイコンフォントを`content: "";`で表示できるように変数化しています。
+// インターポレーション（`#{}`）の中に入れる必要があります。
+// example: content: "#{$icon-LinkMore}";
+$icon-linkExternal: "\EA01" !default;
+$icon-linkJump: "\EA02" !default;
+$icon-linkMore: "\EA03" !default;
+$icon-postFeature: "\EA04" !default;
+$icon-postSummary: "\EA05" !default;
+
+
+/**
+ * アイコンフォントのベーススタイルです。
+ */
+[class^="a-icon-"],
+[class*=" a-icon-"] {
+  @include a-icon();
+}
+
+/**
+ * 任意のアイコンフォントを表示させるModifierです。
+ */
+.a-icon-linkExternal:before { content: "\EA01"; }
+.a-icon-linkJump:before { content: "\EA02"; }
+.a-icon-linkMore:before { content: "\EA03"; }
+.a-icon-postFeature:before { content: "\EA04"; }
+.a-icon-postSummary:before { content: "\EA05"; }
+
+

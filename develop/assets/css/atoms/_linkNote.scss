@@ -1,0 +1,43 @@
+ /* #linkNote
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-linkNote
+category: Atoms
+tag: Link
+---
+
+注釈へのリンクです。`<sup>`タグの子要素として指定します。
+
+```jade
+p ○○
+  sup
+    a.a-linkNote(href="#") 1
+  | を使っています。
+
+p(lang="en") ○○
+  sup
+    a.a-linkNote(href="#") 1
+  | を使っています。
+```
+*/
+.a-linkNote {
+  color: $color-link;
+  text-decoration: underline;
+
+  &:hover {
+    color: $color-link-hover;
+    text-decoration: underline;
+  }
+
+  &:before {
+    content: "※";
+    margin-left: 0.25em;
+  }
+
+  [lang^="en"] &:before,
+  [lang="zh-cn"] &:before,
+  [lang="zh-tw"] &:before {
+    content: "*";
+  }
+}

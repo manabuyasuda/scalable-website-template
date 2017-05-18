@@ -1,0 +1,78 @@
+ /* #anchorLink
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: m-anchorLink
+category: Molecules
+tag: Navigation
+---
+
+ページ内リンクです。
+
+```jade
+ul.m-anchorLink
+  li.m-anchorLink_item
+    a.m-anchorLink_link(href="#ref1") リンク1
+  li.m-anchorLink_item
+    a.m-anchorLink_link(href="#ref2") リンク2リンク2
+  li.m-anchorLink_item
+    a.m-anchorLink_link(href="#ref3") リンク3リンク3
+  li.m-anchorLink_item
+    a.m-anchorLink_link(href="#ref4") リンク4
+```
+*/
+.m-anchorLink {
+  display: block;
+  margin-top: -0.5rem;
+  margin-left: -1.5rem;
+  padding-left: 0;
+  font-size: 0;
+  list-style-type: none;
+}
+
+.m-anchorLink_item {
+  display: inline-block;
+  width: auto;
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+
+  @include mq() {
+    &:not(:first-of-type):before {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: 1em;
+      margin-right: 1.5rem;
+      vertical-align: text-bottom;
+      background-color: #aaa;
+    }
+  }
+}
+
+.m-anchorLink_link {
+  color: $color-link;
+  text-decoration: underline;
+
+  &:hover {
+    color: $color-link-hover;
+    text-decoration: none;
+  }
+
+  &:after {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: -0.1em;
+    left: 0;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.25em;
+    color: $color-link;
+    vertical-align: middle;
+    background-image: url("/assets/img/common/icon/anchorLink.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.85em;
+  }
+}

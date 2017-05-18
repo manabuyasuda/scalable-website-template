@@ -1,0 +1,19 @@
+ /* #sidebar
+   -------------------------------------------------------------------------- */
+/**
+ * サイドバーエリア内のレイアウトを指定します。
+ */
+.t-sidebar {
+  display: block;
+  width: 100%;
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.t-sidebar_nav {}
+
+.t-sidebar_banner {}
+
+.t-sidebar_links {}

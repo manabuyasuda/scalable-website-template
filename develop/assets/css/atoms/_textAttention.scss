@@ -1,0 +1,20 @@
+ /* #textAttention
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-textAttention
+category: Atoms
+tag: Text
+---
+
+`<p>`や`<strong>`で使われるようなスタイルです。注意や注目を引きたい場合に使います。
+
+```jade
+p 通常の文章です、
+  strong.a-textAttention 注意や注目を引きたい文章
+  | です。
+```
+*/
+.a-textAttention {
+  color: #a94442;
+}

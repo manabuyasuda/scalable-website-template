@@ -1,0 +1,44 @@
+ /* #show
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-show
+category: Atoms
+tag: Text
+---
+
+`<br>`タグに指定をして、改行位置をブレイクポイントごとに切り替えます。
+
+```jade
+p 常に
+  br.a-show
+  | 改行されます
+
+p 768px以上で
+  br.a-showMd
+  | 改行されます
+
+p 1080px以上で
+  br.a-showLg
+  | 改行されます
+```
+*/
+.a-show {
+  display: block;
+}
+
+.a-showMd {
+  display: none;
+
+  @include mq(md) {
+    display: block;
+  }
+}
+
+.a-showLg {
+  display: none;
+
+  @include mq(lg) {
+    display: block;
+  }
+}

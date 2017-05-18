@@ -1,0 +1,74 @@
+ /* #figure
+   -------------------------------------------------------------------------- */
+/*
+---
+name: m-figure
+category: Molecules
+tag: Image
+---
+
+キャプションをつけた画像コンポーネントです。キャプションは画像の横幅を基準に折り返されます。
+
+ベーシックなスタイルです。
+
+```jade
+figure.m-figure
+  img.m-figure_image(src="https://placehold.jp/300x200.png" alt="")
+  figcaption.m-figure_caption キャプションキャプションキャプションキャプションキャプション
+```
+
+`.m-figure_caption-center`でキャプションをセンタリングします。
+
+```jade
+figure.m-figure
+  img.m-figure_image(src="https://placehold.jp/300x200.png" alt="")
+  figcaption.m-figure_caption.m-figure_caption-center キャプション
+```
+
+`.m-figure-center`でコンポーネント自体をセンタリングします。
+
+```jade
+figure.m-figure.m-figure-center
+  img.m-figure_image(src="https://placehold.jp/300x200.png" alt="")
+  figcaption.m-figure_caption キャプションキャプションキャプションキャプションキャプション
+```
+*/
+.m-figure {
+  display: table;
+  /* キャプションの最小幅です。 */
+  min-width: 100px;
+}
+
+.m-figure_image {
+}
+
+.m-figure_captionTop,
+.m-figure_caption {
+  display: table-caption;
+  margin-top: 0.5em;
+  font-size: $font-size-secondary;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.m-figure_captionTop {
+  caption-side: top;
+}
+
+.m-figure_caption {
+  caption-side: bottom;
+}
+
+/**
+ * 画像をセンタリングします。
+ */
+.m-figure-center {
+  margin: auto;
+}
+
+/**
+ * テキストをセンタリングします。
+ */
+.m-figure_caption-center {
+  text-align: center;
+}

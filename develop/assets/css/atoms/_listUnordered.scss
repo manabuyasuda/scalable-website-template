@@ -1,0 +1,48 @@
+ /* #listkUnordered
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-listkUnordered
+category: Atoms
+tag: List
+---
+
+順序をもたない並列なリストです。
+
+```jade
+ul.a-listkUnordered
+  li リストです。
+  li リストです。
+    ul
+      li リストです。
+      li リストです。
+```
+*/
+.a-listkUnordered {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.a-listkUnordered > li {
+  // 中黒を表示する横幅
+  padding-left: 1.5em;
+  background-image: url("/assets/img/common/icon/listUnordered.svg");
+  background-repeat: no-repeat;
+  // paddingの真ん中に中黒を配置する (1.5em - 0.375em) / 2 = 0.5625em
+  background-position: 0.5625em 0.5em;
+  // 中黒は6px換算 6px / 16px = 0.375em
+  background-size: 0.375em;
+}
+
+.a-listkUnordered ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.a-listkUnordered ul > li {
+  padding-left: 1.5em;
+  background-image: url("/assets/img/common/icon/listUnordered-nest.svg");
+  background-repeat: no-repeat;
+  background-position: 0.5625em 0.5em;
+  background-size: 0.375em;
+}

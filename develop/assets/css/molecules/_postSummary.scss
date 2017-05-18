@@ -1,0 +1,125 @@
+ /* #postSummary
+   -------------------------------------------------------------------------- */
+/*
+---
+name: m-postSummary
+category: Molecules
+tag: Block
+---
+
+ページへの画像リンクです。画像と見出しなどの概要を伴います。
+
+標準的なスタイルです。
+
+```jade
+a.m-postSummary(href="#")
+  .m-postSummary__image
+    img(src="https://placehold.jp/600x400.png" alt="")
+  .m-postSummary__body
+    span.m-postSummary__icon(aria-hidden="true")
+    h2.m-postSummary__heading 見出しです
+.m-postSummary__foot
+  p フッターテキストです。
+```
+
+サブ見出しをつけた場合です。
+
+```jade
+a.m-postSummary(href="#")
+  .m-postSummary__image
+    img(src="https://placehold.jp/600x400.png" alt="")
+  .m-postSummary__body
+    span.m-postSummary__icon(aria-hidden="true")
+    h2.m-postSummary__heading 見出しです
+    p.m-postSummary__subHeading サブ見出しです
+.m-postSummary__foot
+  p フッターテキストです。
+```
+
+見出しを画像の上につけた場合です。
+
+```jade
+a.m-postSummary(href="#")
+  .m-postSummary__body
+    span.m-postSummary__icon(aria-hidden="true")
+    h2.m-postSummary__heading 見出しです
+    p.m-postSummary__subHeading サブ見出しです
+  .m-postSummary__image
+    img(src="https://placehold.jp/600x400.png" alt="")
+.m-postSummary__foot
+  p フッターテキストです。
+```
+*/
+$m-postSummary-opacity: 0.8 !default;
+$m-postSummary-duration: 0.3s !default;
+
+.m-postSummary {
+  display: block;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+  transition-duration: 0.3s;
+}
+
+.m-postSummary__body {
+  position: relative;
+  width: 100%;
+  padding: 1em;
+  padding-left: 2em;
+  text-decoration: none;
+  background-color: #e8e8e8;
+  transition-duration: $m-postSummary-duration;
+}
+
+.m-postSummary__icon {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+.m-postSummary__icon:before {
+  @include a-icon();
+  content: "#{$icon-postSummary}";
+}
+
+.m-postSummary__heading {
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.m-postSummary__subHeading {
+  margin-top: 0.25em;
+  color: #444;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+.m-postSummary__image {
+  transition-duration: $m-postSummary-duration;
+}
+.m-postSummary__image > img {
+  display: block;
+  width: 100%;
+  max-width: none;
+}
+
+.m-postSummary__foot {
+  margin-top: 0.5em;
+}
+
+/**
+ * State
+ */
+.m-postSummary {
+  @include onEvent() {
+    text-decoration: none;
+
+    & .m-postSummary__image {
+      opacity: $m-postSummary-opacity;
+    }
+
+    & .m-postSummary__body {
+      background-color: #e8eefa;
+    }
+  }
+}

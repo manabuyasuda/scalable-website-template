@@ -1,0 +1,21 @@
+ /* #header
+   -------------------------------------------------------------------------- */
+/**
+ * グローバルヘッダー内のレイアウトを指定します。
+ */
+.t-header {
+  display: block;
+  width: 100%;
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.t-header_logo {
+
+}
+
+.t-header_globalNav {
+
+}

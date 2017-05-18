@@ -1,0 +1,19 @@
+ /* #textSecondary
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-textSecondary
+category: Atoms
+tag: Text
+---
+
+`<p>`や`<small>`で使われるようなテキストスタイルです。副次的な意味合いを持たせる場合に使います。
+
+```jade
+p 通常の文章です
+p.a-textSecondary 補足的な文章です
+```
+*/
+.a-textSecondary {
+  font-size: $font-size-secondary;
+}

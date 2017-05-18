@@ -1,0 +1,70 @@
+ /* #detail
+   -------------------------------------------------------------------------- */
+/*
+---
+name: t-detail
+category: Templates
+---
+
+詳細ページのレイアウトです。2カラムレイアウトになります。
+
+```jade
+.t-detail
+  .t-detail_header
+    p ヘッダー
+
+    .t-detail_hero
+      p メインビジュアル
+
+  .t-detail_breadcrumb
+    p パンくずリスト
+
+  .t-detail_wrap
+    .t-detail_content
+      p メインコンテンツ
+
+    .t-detail_sidebar
+      p サイドバー
+
+  .t-detail_footer
+```
+*/
+.t-detail {}
+.t-detail_header {}
+.t-detail_hero {}
+.t-detail_breadcrumb {}
+
+.t-detail_wrap {
+  display: block;
+  margin-left: -2rem;
+  padding-left: 0;
+  font-size: 0;
+  list-style-type: none;
+}
+
+.t-detail_content,
+.t-detail_sidebar {
+  display: inline-block;
+  width: 100%;
+  padding-left: 2rem;
+  font-size: medium;
+  font-size: 1rem;
+  vertical-align: top;
+}
+
+.t-detail_content {
+  margin-bottom: 3.2rem;
+}
+
+@include mq() {
+  .t-detail_content {
+    width: percentage(8 / 12);
+    margin-bottom: 0;
+  }
+
+  .t-detail_sidebar {
+    width: percentage(4 / 12);
+  }
+}
+
+.t-detail_footer {}

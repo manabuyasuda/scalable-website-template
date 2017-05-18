@@ -1,0 +1,79 @@
+ /* #formRadio
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-formRadio
+category: Atoms
+tag: Form
+---
+
+`type="radio"`のデフォルトスタイルです。`<input>`タグと`<label>`タグの順番で並列に配置してください。
+`<input>`タグには`id`属性を、`<label>`タグには`for`属性を指定して紐付けてください。`name`属性は必須で、グルーピングする要素同士は同じ`name`属性値を指定してください。
+
+クリック、タップ、キーボード操作（Macの場合は、tabやtab + shiftでフォーカスの移動、←や→の選択など）で正常に動作することを確認してください。
+
+```jade
+input.a-formRadio(type="radio" id="radio1" name="radio1" checked)
+label(for="radio1") ラジオボタン
+input.a-formRadio(type="radio" id="radio2" name="radio1")
+label(for="radio2") ラジオボタン
+```
+
+非活性状態です。`<input>`タグと`<label>`タグの両方に`disabled`属性を指定します。
+
+```jade
+input.a-formRadio(type="radio" id="radio3" name="radio3" disabled)
+label(for="radio3" disabled) ラジオボタン
+```
+
+`a-formRadio()`mixinでスタイルを継承することができます。
+
+```scss
+.anotherRadio {
+  @include a-formRadio();
+}
+```
+*/
+@mixin a-formRadio() {
+  /* デフォルトのラジオボタンを非表示にする。 */
+  @include srOnly();
+
+  & + label {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+  }
+
+  & + label:before {
+    $size: 1em;
+    content: "";
+    display: inline-block;
+    width: $size;
+    height: $size;
+    margin-right: 0.25em;
+    vertical-align: text-bottom;
+    background-image: url("/assets/img/common/icon/formRadio_off.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &:focus + label:before {
+    border-color: $form-focus-border-color;
+    border-radius: 50%;
+    box-shadow: $form-focus-box-shadow;
+  }
+
+  &:checked + label:before {
+    background-image: url("/assets/img/common/icon/formRadio_on.svg");
+  }
+
+  &:disabled,
+  & + label[disabled] {
+    opacity: $form-disabled-opacity;
+    cursor: $form-disabled-cursor;
+  }
+}
+
+.a-formRadio {
+  @include a-formRadio();
+}

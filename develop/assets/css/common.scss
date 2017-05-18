@@ -1,0 +1,226 @@
+@charset "UTF-8";
+// =============================================================================
+// #Variable
+// ========================================================================== */
+//
+// Variableレイヤーではグローバル変数を定義します。
+// 例えば、サイトのmax-widthやフォントのサイズ、余白や色に関するものです。
+// その他、サイトを横断して再利用できる値もまとめています。
+//
+@import "base/variable/_fontFamily.scss";
+@import "base/variable/_easing.scss";
+@import "base/variable/_breakpoint.scss";
+@import "base/variable/_global.scss";
+
+
+// =============================================================================
+// #Function
+// ========================================================================== */
+//
+// Functionレイヤーでは汎用的な関数を定義します。
+//
+@import "base/function/_rem.scss";
+@import "base/function/_tracking.scss";
+
+
+// =============================================================================
+// #Mixin
+// ========================================================================== */
+//
+// Mixinレイヤーではグローバルなmixinを定義します。
+//
+@import "base/mixin/_mq.scss";
+@import "base/mixin/_clearfix.scss";
+@import "base/mixin/_onEvent.scss";
+@import "base/mixin/_srOnly.scss";
+
+
+/* =============================================================================
+   #Base
+   ========================================================================== */
+/**
+ * Baseレイヤーでは要素セレクタや属性セレクタのようなオブジェクトのベースとなるスタイルを定義します。
+ * Normalize.scssもこのレイヤーに含まれます。
+ * 詳細度はクラスセレクタと同じ0,0,1,0以下になるように極力低くします。
+ * メディアクエリや擬似クラスのような、ある状況や状態に対するスタイルは極力指定しないようにします。
+ * オブジェクト間の余白を管理しやすくするために、上下方向の`margin`は`0`にリセットしておくのを推奨します。
+ * ただし、過度なリセットは禁止します。
+ * 継承を利用するために、ルート要素の`font-size`はパーセンテージで指定（`10px` = `1rem`にするのは禁止）、
+ * その他の要素やオブジェクトのサイズは`rem`と`em`で指定します。
+ */
+@import "base/_normalize.scss";
+@import "base/_base.scss";
+
+
+/* =============================================================================
+   #Atoms
+   ========================================================================== */
+/**
+ * Atoms（アトム）は機能的にこれ以上分割ができない最小の要素です。
+ * 例えば、見出しやリスト、フォームラベルやボタンなどが該当します。
+ * Atomsはコンテキストを含んだ名前にします。シングルクラスで指定したり、
+ * 後述するMoleculesで呼び出せるようにmixinなどを使いますが、過度に複雑にしないようにします。
+ * カラーパレットやアニメーションはVariableなどに定義して読み込み順を管理しています。
+ * 後述するMoleculesとOrganismsからスタイルを簡単に上書きできるように`em`での指定を基本とします。
+ * テキストやリストのような文章を書くためのコンポーネントはAtoms単体で使用することがあります。
+ * 名前空間として`.a-`をつけます。
+ */
+// アイコンフォントです。テンプレートから自動で生成されます。
+@import "atoms/_icon.scss";
+// アイコンフォントにスタイルを追加します。
+@import "atoms/_iconExtend.scss";
+// `<h1>`で使われる見出しのスタイルです。
+@import "atoms/_title.scss";
+// `<h2>`で使われるような見出しのスタイルです。
+@import "atoms/_heading2.scss";
+// `<h3>`で使われるような見出しのスタイルです。
+@import "atoms/_heading3.scss";
+// 視覚的に目立たせるようなリード文で使うスタイルです。
+@import "atoms/_lead.scss";
+// 強調や重要性を示すときに使います。
+@import "atoms/_textEmphasis.scss";
+// 注意や注目を引きたい場合に使います。
+@import "atoms/_textAttention.scss";
+// 副次的な意味合いを持たせる場合に使います。
+@import "atoms/_textSecondary.scss";
+// ゆったりと落ち着いた印象を与えたいときに使います。
+@import "atoms/_textCalm.scss";
+// 順序をもたない並列なリストです。
+@import "atoms/_listUnordered.scss";
+// 入れ子に対応した順序リストです。
+@import "atoms/_listOrder.scss";
+// 注釈用のリストです。米印やアスタリスクが表示されます。
+@import "atoms/_listNote.scss";
+// 注釈用のリストです。米印やアスタリスクが表示されます。
+@import "atoms/_listNoteOrder.scss";
+// 括弧で囲んだ順序リストです。
+@import "atoms/_listBracketOrder.scss";
+// 文章中にあるテキストリンクのスタイルです。
+@import "atoms/_link.scss";
+// 文章の中ではない単独のテキストリンクのスタイルです。
+@import "atoms/_linkSingle.scss";
+// 注釈へのリンクです。`<sup>`タグの子要素として指定します。
+@import "atoms/_linkNote.scss";
+// インラインで表示するラベルコンポーネントです。
+@import "atoms/_label.scss";
+// 必須を示すラベルです。
+@import "atoms/_labelRequired.scss";
+//`<br>`タグに指定をして、改行位置をブレイクポイントごとに切り替えます。
+@import "atoms/_hide.scss";
+//`<br>`タグに指定をして、改行位置をブレイクポイントごとに切り替えます。
+@import "atoms/_show.scss";
+//途中で改行をさせたくないフレーズやキーワードに指定します。囲まれた範囲（Delimiter）がまとまって改行されます。
+@import "atoms/_delimiter.scss";
+// `<hr>`のような区切り記号を使って、分割・グルーピングします。
+@import "atoms/_divider.scss";
+// Youtubeなどをレスポンシブ対応させます。
+@import "atoms/_embedResponsive.scss";
+// ボタンのベーススタイルです。
+@import "atoms/_button.scss";
+// 検索ボタンです。
+@import "atoms/_buttonSearch.scss";
+// `type="input"`のデフォルトスタイルです。
+@import "atoms/_formInput.scss";
+// `<textarea>`のデフォルトスタイルです。
+@import "atoms/_formTextarea.scss";
+// `<select>`のデフォルトスタイルです。
+@import "atoms/_formSelect.scss";
+// `type="checkbox"`のデフォルトスタイルです。
+@import "atoms/_formCheckbox.scss";
+// `type="radio"`のデフォルトスタイルです。
+@import "atoms/_formRadio.scss";
+
+
+/* =============================================================================
+   #Molecules
+   ========================================================================== */
+/**
+ * Molecules（モルキュール）はAtomsなどを組み合わせた比較的シンプルなUIグループです。
+ * 例えば、検索フォームはlabelとinput、buttonが組み合わさったMoleculesです。
+ * Moleculesはシンプルで機能的なコンポーネントにすることを推奨します。
+ * これにより、扱いやすく、メンテナンス性が高く、一貫性を保ったUIにすることができます。
+ * 無理にグローバルなコンポーネントにせず、ページやカテゴリー、使う場面ごとにコンポーネントを分けて管理するようにします。
+ * 後述するOrganismsからスタイルを簡単に上書きできるように`em`での指定を基本とします。
+ * 名前空間として`.m-`をつけます。
+ */
+// ベーシックなパンくずリストです。
+@import "molecules/_breadcrumb.scss";
+// ページ内リンクです。
+@import "molecules/_linkJump.scss";
+// キャプションをつけた画像コンポーネントです。キャプションは画像の横幅を基準に折り返されます。
+@import "molecules/_figure.scss";
+// ベーシックなテーブルです。
+@import "molecules/_table.scss";
+// 横スクロール可能なテーブルです。
+@import "molecules/_tableScroll.scss";
+// ページへの画像リンクです。画像と見出しなどの概要を伴います。
+@import "molecules/_postSummary.scss";
+// ページへの画像リンクです。（`.m-postSummary`よりも）特に目立たせたい主要なページへの誘導に使います。
+@import "molecules/_postFeature.scss";
+// 複数のボタンをグルーピングします。モバイルで縦に並び、タブレット以降で横に並びます。
+@import "molecules/_buttonGroup.scss";
+// 検索フォームです。
+@import "molecules/_searchForm.scss";
+
+
+/* =============================================================================
+   #Organisms
+   ========================================================================== */
+/**
+ * Organisms（オルガニズム）はAtomsやMolecules、または複数のMoleculesを組み合わせた比較的複雑なUIグループです。
+ * 例えば、グローバルヘッダーはロゴとグローバルナビゲーション、検索フォームなどが組み合わさったOrganismsです。
+ * 無理にグローバルなコンポーネントにせず、ページやカテゴリー、使う場面ごとにコンポーネントを分けて管理するようにします。
+ * 名前空間として`.o-`をつけます。
+ */
+// グリッドシステムです。カラムごとに任意の値を指定したい場合に使います。
+@import "organisms/_grid.scss";
+// グリッドシステムです。1/2や1/3のような均等なカラムや、8/12と4/12のようなよく使うカラムの指定ができます。
+@import "organisms/_grids.scss";
+// グローバルヘッダー内のレイアウトを指定します。
+@import "organisms/_header.scss";
+// グローバルフッター内のレイアウトを指定します。
+@import "organisms/_footer.scss";
+// メインコンテンツエリア内のベースになるレイアウトです。
+@import "organisms/_content.scss";
+// サイドバーエリア内のレイアウトを指定します。
+@import "organisms/_sidebar.scss";
+
+
+/* =============================================================================
+   #Templates
+   ========================================================================== */
+/**
+ * Templates（テンプレート）はページレベルのオブジェクトで、
+ * コンポーネント（Atoms・Molecules・Organisms）を配置してページの構成を整えます。
+ * ページカテゴリーによって細かく指定してもいいですし、
+ * 1カラムと2カラムのように大まかに作るかはサイトの設計次第で選択してください。
+ * 名前空間として`.t-`をつけます。
+ */
+// サイトトップページ
+@import "templates/_top.scss";
+// 詳細ページ
+@import "templates/_detail.scss";
+// カテゴリートップページ
+@import "templates/_categoryTop.scss";
+// カテゴリー詳細ページ
+@import "templates/_categoryDetail.scss";
+// 採用情報ページ
+@import "templates/_recruit.scss";
+// 検索結果ページ
+@import "templates/_result.scss";
+// サイトマップ
+@import "templates/_sitemap.scss";
+// ランディングページ
+@import "templates/_lp.scss";
+
+
+/* =============================================================================
+   #Pages
+   ========================================================================== */
+/**
+ * Pages（ページ）はTemplatesの動的なバリエーションです。例えば、ログインしているか、カートに入っているかといった特定の状況や、
+ * 実際の画像やテキストを入れたときにレイアウトが崩れることはないかなどを確認します。
+ * 例えば、特定のページやカテゴリに対するスタイルを定義したり、動的にページの状態を変更したいときなどです。
+ * 名前空間として`.p-`をつけます。
+ */
+/*@import "pages/";*/

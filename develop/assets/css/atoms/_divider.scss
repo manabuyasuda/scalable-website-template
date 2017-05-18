@@ -1,0 +1,26 @@
+ /* #divider
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-divider
+category: Atoms
+tag: Text
+---
+
+区切り記号を使って、分割・グルーピングします。CSSをうまく読み込めなかった環境を考慮して、`<hr>`タグで指定します。
+
+```jade
+p テキストです。
+hr.a-divider
+p テキストです。
+```
+*/
+.a-divider {
+  display: block;
+  box-sizing: inherit;
+  width: 100%;
+  height: 1px;
+  margin: 1.2em auto;
+  border: 0;
+  background-color: #e5e5e5;
+}

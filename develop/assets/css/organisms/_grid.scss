@@ -1,0 +1,232 @@
+ /* #grid
+   -------------------------------------------------------------------------- */
+/*
+---
+name: o-grid
+category: Organisms
+tag: Global
+---
+
+グリッドシステムです。カラムごとに任意の値を指定したい場合に使います。
+左右にあるカラム間の余白は`$o-grid-column-gap`で統一しています。カラムの上下に余白を指定したい場合は`.o-grids`を使用してください。
+他に適切なコンポーネントがない場合に使います。
+
+以下のような指定ができます。
+
+- `.o-grid_item-8of12` カラム数の指定。
+- `.o-grid-reverse` カラムの反転。
+- `.o-grid-center` カラムのセンタリング。
+- `.o-grid-middle` カラムの垂直配置。
+
+```jade
+.o-grid
+  .o-grid_item.o-grid_item-8of12Md
+    img(src="https://placehold.jp/1200x800.png" alt="")
+  .o-grid_item.o-grid_item-4of12Md
+    img(src="https://placehold.jp/600x400.png" alt="")
+
+.o-grid.o-grid-reversMd
+  .o-grid_item.o-grid_item-8of12Md
+    img(src="https://placehold.jp/1200x800.png" alt="")
+  .o-grid_item.o-grid_item-4of12Md
+    img(src="https://placehold.jp/600x400.png" alt="")
+
+.o-grid.o-grid-centerMd
+  .o-grid_item.o-grid_item-8of12Md
+    img(src="https://placehold.jp/1200x800.png" alt="")
+```
+*/
+$o-grid-column-gap: 2rem;
+
+.o-grid {
+  display: block;
+  margin-left: -$o-grid-column-gap;
+  padding-left: 0;
+  font-size: 0;
+  list-style-type: none;
+}
+
+.o-grid_item {
+  display: inline-block;
+  width: 100%;
+  padding-left: $o-grid-column-gap;
+  font-size: medium;
+  font-size: 1rem;
+  vertical-align: top;
+}
+
+.o-grid_item {
+  &-1of12 { width: percentage(1 / 12)};
+  &-2of12 { width: percentage(2 / 12)};
+  &-3of12 { width: percentage(3 / 12)};
+  &-4of12 { width: percentage(4 / 12)};
+  &-5of12 { width: percentage(5 / 12)};
+  &-6of12 { width: percentage(6 / 12)};
+  &-7of12 { width: percentage(7 / 12)};
+  &-8of12 { width: percentage(8 / 12)};
+  &-9of12 { width: percentage(9 / 12)};
+  &-10of12 { width: percentage(10 / 12)};
+  &-11of12 { width: percentage(11 / 12)};
+  &-12of12 { width: percentage(12 / 12)};
+}
+
+@include mq(md) {
+  .o-grid_item {
+    &-1of12Md { width: percentage(1 / 12)};
+    &-2of12Md { width: percentage(2 / 12)};
+    &-3of12Md { width: percentage(3 / 12)};
+    &-4of12Md { width: percentage(4 / 12)};
+    &-5of12Md { width: percentage(5 / 12)};
+    &-6of12Md { width: percentage(6 / 12)};
+    &-7of12Md { width: percentage(7 / 12)};
+    &-8of12Md { width: percentage(8 / 12)};
+    &-9of12Md { width: percentage(9 / 12)};
+    &-10of12Md { width: percentage(10 / 12)};
+    &-11of12Md { width: percentage(11 / 12)};
+    &-12of12Md { width: percentage(12 / 12)};
+  }
+}
+
+@include mq(lg) {
+  .o-grid_item {
+    &-1of12Lg { width: percentage(1 / 12)};
+    &-2of12Lg { width: percentage(2 / 12)};
+    &-3of12Lg { width: percentage(3 / 12)};
+    &-4of12Lg { width: percentage(4 / 12)};
+    &-5of12Lg { width: percentage(5 / 12)};
+    &-6of12Lg { width: percentage(6 / 12)};
+    &-7of12Lg { width: percentage(7 / 12)};
+    &-8of12Lg { width: percentage(8 / 12)};
+    &-9of12Lg { width: percentage(9 / 12)};
+    &-10of12Lg { width: percentage(10 / 12)};
+    &-11of12Lg { width: percentage(11 / 12)};
+    &-12of12Lg { width: percentage(12 / 12)};
+  }
+}
+
+/**
+ * 要素の垂直位置を真ん中寄せ。
+ */
+.o-grid-middle > .o-grid_item {
+  vertical-align: middle;
+}
+@include mq(md) {
+  .o-grid-middleMd > .o-grid_item {
+    vertical-align: middle;
+  }
+}
+@include mq(lg) {
+  .o-grid-middleLg > .o-grid_item {
+    vertical-align: middle;
+  }
+}
+
+/**
+ * 要素の垂直位置を下寄せ。
+ */
+.o-grid--bottom > .o-grid_item {
+  vertical-align: bottom;
+}
+@include mq(md) {
+  .o-grid-bottomMd > .o-grid_item {
+    vertical-align: bottom;
+  }
+}
+@include mq(lg) {
+  .o-grid-bottomLg > .o-grid_item {
+    vertical-align: bottom;
+  }
+}
+
+/**
+ * 要素を中央寄せ、要素内は左寄せ。
+ */
+.o-grid-center {
+  text-align: center;
+
+  & > .o-grid_item {
+    text-align: left;
+  }
+}
+@include mq(md) {
+  .o-grid-centerMd {
+    text-align: center;
+
+    & > .o-grid_item {
+      text-align: left;
+    }
+  }
+}
+@include mq(lg) {
+  .o-grid-centerLg {
+    text-align: center;
+
+    & > .o-grid_item {
+      text-align: left;
+    }
+  }
+}
+
+/**
+ * 要素を右寄せ、要素内は左寄せ。
+ */
+.o-grid-right {
+  text-align: right;
+
+  & > .o-grid_item {
+    text-align: left;
+  }
+}
+@include mq(md) {
+  .o-grid-rightMd {
+    text-align: right;
+
+    & > .o-grid_item {
+      text-align: left;
+    }
+  }
+}
+@include mq(lg) {
+  .o-grid-rightLg {
+    text-align: right;
+
+    & > .o-grid_item {
+      text-align: left;
+    }
+  }
+}
+
+/**
+ * 要素の反転。
+ */
+.o-grid-reverse {
+  text-align: left;
+  direction: rtl;
+
+  & > .o-grid_item {
+    text-align: left;
+    direction: ltr;
+  }
+}
+@include mq(md) {
+  .o-grid-reversMd {
+    text-align: left;
+    direction: rtl;
+
+    & > .o-grid_item {
+      text-align: left;
+      direction: ltr;
+    }
+  }
+}
+@include mq(lg) {
+  .o-grid-reverseLg {
+    text-align: left;
+    direction: rtl;
+
+    & > .o-grid_item {
+      text-align: left;
+      direction: ltr;
+    }
+  }
+}

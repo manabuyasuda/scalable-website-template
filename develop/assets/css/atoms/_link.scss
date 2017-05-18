@@ -1,0 +1,38 @@
+ /* #link
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-link
+category: Atoms
+tag: Link
+---
+
+文章中にあるテキストリンクのスタイルです。
+
+```jade
+p
+  | 文章中にある
+  a.a-link(href="#") テキストリンクです。
+```
+
+`a-link()`mixinでスタイルを継承することができます。
+
+```scss
+.anotherLink {
+  @include a-link();
+}
+```
+*/
+@mixin a-link() {
+  color: $color-link;
+  text-decoration: underline;
+
+  &:hover {
+    color: $color-link-hover;
+    text-decoration: underline;
+  }
+}
+
+.a-link {
+  @include a-link();
+}

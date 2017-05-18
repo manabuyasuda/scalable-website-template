@@ -1,0 +1,46 @@
+ /* #listNoteOrder
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-listNoteOrder
+category: Atoms
+tag: List
+---
+
+注釈用のリストです。米印やアスタリスクが表示されます。
+
+```jade
+ol.a-listNoteOrder
+  li 注釈です
+  li 注釈です
+
+div(lang="en")
+  ul.a-listNoteOrder(lang="en")
+    li 注釈です
+    li 注釈です
+```
+*/
+.a-listNoteOrder {
+  padding-left: 0;
+  list-style-type: none;
+
+  li {
+    font-size: $font-size-secondary;
+    counter-increment: noteOrder;
+  }
+
+  & > li:target {
+    background-color: lightgray;
+  }
+
+  & > li:before {
+    content: "※" counter(noteOrder);
+    margin-right: 0.25em;
+  }
+
+  [lang="en"] & > li:before,
+  [lang="zh-cn"] & > li:before,
+  [lang="zh-tw"] & > li:before {
+    content: "*" counter(noteOrder);
+  }
+}

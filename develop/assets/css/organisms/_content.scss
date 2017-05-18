@@ -1,0 +1,240 @@
+ /* #content
+   -------------------------------------------------------------------------- */
+/*
+---
+name: o-content
+category: Organisms
+tag: Global
+---
+
+メインコンテンツエリア内のベースになるレイアウトです。
+
+### コンテンツエリアを構成するコンポーネント
+
+- `.o-content_inner`：左右に`padding`を追加
+- `.o-content_head`：コンテンツエリア内のヘッダー
+- `.o-content_body`：コンテンツエリア内のメイン
+- `.o-content_foot`：コンテンツエリア内のフッター
+
+### コンテンツ内の主なコンポーネント
+
+- `.o-content_section1`：`<h2>`レベルのセクション間の余白指定
+- `.o-content_section2`：`<h3>`レベルのセクション間の余白指定
+- `.o-content_section1-divider`：`.o-content_section2`の間に大き目の余白とボーダーを指定
+- `.o-content_text`：テキストレベルのベースになる余白
+- `.o-content_textSmall`：テキストレベルの小さめの余白
+
+```jade
+.o-content
+  .o-content_head
+    .o-content_inner
+      .a-title ページタイトルです
+      p.a-lead.o-content_text ページのリード文です。
+      p.o-content_text コンテンツヘッダーのテキストです。
+
+  .o-content_body
+    .o-content_inner
+      .o-content_section1
+        h2.a-heading2 h2見出しです
+        p.o-content_text メインコンテンツ内のテキストです。
+        p.o-content_text メインコンテンツ内のテキストです。
+
+      .o-content_section1
+        h2.a-heading2 h2見出しです
+
+        .o-content_section2
+          h3.a-heading3 h3見出しです
+          p.o-content_text メインコンテンツ内のテキストです。
+          p.o-content_text メインコンテンツ内のテキストです。
+
+        .o-content_section2
+          h3.a-heading3 h3見出しです
+          p.o-content_text メインコンテンツ内のテキストです。
+          p.o-content_text メインコンテンツ内のテキストです。
+
+      .o-content_section1.o-content_section1-divider
+        h2.a-heading2 h2見出しです
+        .o-content_section2
+          h3.a-heading3 h3見出しです
+          p.o-content_text メインコンテンツ内のテキストです。
+          p.o-content_text メインコンテンツ内のテキストです。
+
+        .o-content_section2
+          h3.a-heading3 h3見出しです
+          p.o-content_text メインコンテンツ内のテキストです。
+          p.o-content_text メインコンテンツ内のテキストです。
+
+      .o-content_section1
+        h2.a-heading2 m-postSummary
+
+        .o-grids.o-grids-col2Md
+          article.o-grids_item
+            a.m-postSummary(href="#")
+              .m-postSummary__image
+                img(src="https://placehold.jp/600x400.png" alt="")
+              .m-postSummary__body
+                span.m-postSummary__icon(aria-hidden="true")
+                h3.m-postSummary__heading 見出しです
+            .m-postSummary__foot
+              p フッターテキストです。
+
+          article.o-grids_item
+            a.m-postSummary(href="#")
+              .m-postSummary__image
+                img(src="https://placehold.jp/600x400.png" alt="")
+              .m-postSummary__body
+                span.m-postSummary__icon(aria-hidden="true")
+                h3.m-postSummary__heading 見出しです
+            .m-postSummary__foot
+              p フッターテキストです。
+
+        .o-grids.o-grids-col3Md
+          article.o-grids_item
+            a.m-postSummary(href="#")
+              .m-postSummary__image
+                img(src="https://placehold.jp/600x400.png" alt="")
+              .m-postSummary__body
+                span.m-postSummary__icon(aria-hidden="true")
+                h3.m-postSummary__heading 見出しです
+
+          article.o-grids_item
+            a.m-postSummary(href="#")
+              .m-postSummary__image
+                img(src="https://placehold.jp/600x400.png" alt="")
+              .m-postSummary__body
+                span.m-postSummary__icon(aria-hidden="true")
+                h3.m-postSummary__heading 見出しです
+
+          article.o-grids_item
+            a.m-postSummary(href="#")
+              .m-postSummary__image
+                img(src="https://placehold.jp/600x400.png" alt="")
+              .m-postSummary__body
+                span.m-postSummary__icon(aria-hidden="true")
+                h3.m-postSummary__heading 見出しです
+
+  .o-content_foot
+    .o-content_inner
+      ol.m-breadcrumb
+        li.m-breadcrumb__item
+          a.m-breadcrumb__link(href="/") ホーム
+        li.m-breadcrumb__item
+          a.m-breadcrumb__link(href="#") カテゴリ名
+        li.m-breadcrumb__item ページ名
+```
+*/
+/**
+ * メインコンテンツエリアです。
+ */
+.o-content {
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * コンテンツ内に左右の余白をつけます。
+ */
+.o-content_inner {
+  padding: 0 1rem;
+}
+
+/**
+ * メインコンテンツのコンテンツヘッダーです。
+ * `.o-content_body`に対して下側の余白を指定します。
+ */
+.o-content_head {
+  margin-bottom: 3.2rem;
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * メインコンテンツの本文です。
+ * `.o-content_head`と`.o-content_foot`から余白を指定されることがあります。
+ */
+.o-content_body {
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * メインコンテンツのコンテンツフッターです。
+ * `.o-content_body`に対して上側の余白を指定します。
+ */
+.o-content_foot {
+  margin-top: 3.2rem;
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * `<h2>`のラップ要素（1つ目の`<section>`）として下方向に余白を指定します。
+ * 見出しがなくても、グループ化してまとまり感を出したい場合に使ってもかまいません。
+ * `.o-content_body`内で使用します。
+ * 最後の要素の下方向の余白は0になります
+ */
+.o-content_section1 {
+  margin-bottom: 3.2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * `<h3>`のラップ要素（2つ目の`<section>`）として下方向に余白を指定します。
+ * 見出しがなくても、グループ化してまとまり感を出したい場合に使ってもかまいません。
+ * 最後の要素の下方向の余白は0になります。
+ */
+.o-content_section2 {
+  margin-bottom: 1.6rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * `.o-content_section2`同士の間に区切り記号を表示して通常より大きめに余白をとります。
+ * `.o-content_section1`のModifierとして指定します。
+ */
+.o-content_section1-divider > .o-content_section2:not(:last-of-type):after {
+  content: "";
+  display: block;
+  width: 100%;
+  margin: 3.2rem auto;
+  border-top: 1px solid #e5e5e5;
+}
+
+/**
+ * テキストレベルのコンポーネントのベースになる余白を指定します。
+ * 最後の要素の下方向の余白は0になります。
+ */
+.o-content_text {
+  margin-bottom: 1.2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * テキストレベルのコンポーネントの少し狭い余白を指定します。
+ * 例えば、注釈との間に指定します。
+ * 最後の要素の下方向の余白は0になります。
+ */
+.o-content_textSmall {
+  margin-bottom: 0.6rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

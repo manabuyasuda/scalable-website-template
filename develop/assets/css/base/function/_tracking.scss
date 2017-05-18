@@ -1,0 +1,13 @@
+// @desc - Photoshopのトラッキングの値を`em`に変換します。
+// @param {Number} $value - トラッキングの値をそのまま渡します。
+// @example scss - Usage
+// .foo {
+//   letter-spacing: tracking(50);
+// }
+// @example css - CSS Output
+// .foo {
+//   letter-spacing: 0.05em;
+// }
+@function tracking($value) {
+  @return ($value / 1000) * 1em;
+}

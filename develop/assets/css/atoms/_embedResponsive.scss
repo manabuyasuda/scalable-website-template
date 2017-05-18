@@ -1,0 +1,66 @@
+ /* #embedResponsive
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-embedResponsive
+category: Atoms
+tag: ThirdPartyComponent
+---
+
+YoutubeやGoogle Mapsのようなサードパティーコンテンツのアスペクト比を固定したり、レスポンシブ対応するときに使います。
+デフォルトでは16:9のアスペクト比に固定されます。
+
+```jade
+div(style="width:50%;")
+  .a-embedResponsive.
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/1OKZOV-iLj4"></iframe>
+```
+
+```jade
+div(style="width:50%;")
+  .a-embedResponsive.a-embedResponsive-3to2.
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12966.991898658345!2d139.7454329!3d35.6585805!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x481a93f0d2a409dd!2z5p2x5Lqs44K_44Ov44O8!5e0!3m2!1sja!2sjp!4v1491922441312" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+```
+*/
+.a-embedResponsive {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  height: 0;
+  padding-bottom: percentage(9 / 16);
+
+  &_item,
+  iframe,
+  embed,
+  object,
+  video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+/**
+ * アスペクト比 4:3
+ */
+.a-embedResponsive-4to3 {
+  padding-bottom: percentage(3 / 4) !important;
+}
+
+/**
+ * アスペクト比 3:2
+ */
+.a-embedResponsive-3to2 {
+  padding-bottom: percentage(2 / 3) !important;
+}
+
+/**
+ * アスペクト比 1:1
+ */
+.a-embedResponsive-1to1 {
+  padding-bottom: percentage(1 / 1) !important;
+}

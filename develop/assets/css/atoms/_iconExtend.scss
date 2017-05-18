@@ -1,0 +1,33 @@
+ /* #iconExtend
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-iconExtend
+category: Atoms
+tag: Icon
+---
+
+アイコンの使用例をまとめています。
+
+```jade
+p: a.a-linkSingle(href="#") 外部リンクを開く
+  span.a-icon-linkExternal(aria-hidden="true")
+
+p: a.a-linkSingle(href="#") 製品情報を見る
+  span.a-icon-linkMore(aria-hidden="true")
+```
+*/
+/**
+ * リンクの右側につけるアイコンに余白を指定します。
+ */
+.a-icon-linkExternal,
+.a-icon-linkMore {
+  margin-left: 0.3em;
+}
+
+/**
+ * アイコンのサイズを大きくします。
+ */
+.a-icon-linkExternal {
+  font-size: 1.4em;
+}

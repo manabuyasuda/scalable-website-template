@@ -1,0 +1,25 @@
+ /* #laed
+   -------------------------------------------------------------------------- */
+/*
+---
+name: a-lead
+category: Atoms
+tag: Text
+---
+
+視覚的に目立たせるときに使うスタイルです。
+
+```jade
+p.a-lead リード文です。
+```
+*/
+@mixin a-lead() {
+  color: #0a41a6;
+  font-size: 1.2em;
+  font-weight: $font-weight-bold;
+  line-height: 1.8;
+}
+
+.a-lead {
+  @include a-lead();
+}

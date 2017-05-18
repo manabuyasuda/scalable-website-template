@@ -1,0 +1,48 @@
+ /* #breadcrumb
+   -------------------------------------------------------------------------- */
+/*
+---
+name: m-breadcrumb
+category: Molecules
+tag: Navigation
+---
+
+ベーシックなパンくずリストです。`<ol>`タグで指定します。
+
+```jade
+ol.m-breadcrumb
+  li.m-breadcrumb__item
+    a.m-breadcrumb__link(href="/") ホーム
+  li.m-breadcrumb__item
+    a.m-breadcrumb__link(href="#") カテゴリ名
+  li.m-breadcrumb__item ページ名
+```
+*/
+.m-breadcrumb {
+  overflow: hidden;
+  padding-left: 0;
+  font-size: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  list-style-type: none;
+}
+
+.m-breadcrumb__item {
+  display: inline-block;
+  font-size: 1rem;
+  font-size: 0.85rem;
+
+  &:last-child {
+    display: inline;
+  }
+}
+
+.m-breadcrumb__link {
+  @include a-link();
+  display: inline-block;
+}
+
+.m-breadcrumb__item:not(:first-of-type):before {
+  content: "/";
+  margin: 0 0.5em;
+}

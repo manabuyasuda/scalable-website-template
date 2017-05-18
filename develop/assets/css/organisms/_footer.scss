@@ -1,0 +1,25 @@
+ /* #footer
+   -------------------------------------------------------------------------- */
+/**
+ * グローバルフッター内のレイアウトを指定します。
+ */
+.t-footer {
+  display: block;
+  width: 100%;
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.t-footer_link {
+
+}
+
+.t-footer_logo {
+
+}
+
+.t-footer_copyright {
+
+}

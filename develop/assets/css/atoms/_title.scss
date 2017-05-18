@@ -1,0 +1,22 @@
+ /* #title
+   -------------------------------------------------------------------------- */
+/*
+---
+name: a-title
+category: Atoms
+tag: Heading
+---
+
+`<h1>`で使われるようなページタイトルのスタイルです。
+
+```jade
+h1.a-title ページタイトルです。
+```
+*/
+.a-title {
+  margin-bottom: 1.6rem;
+  border-bottom: 5px solid #eee;
+  font-size: 2em;
+  font-weight: $font-weight-bold;
+  line-height: 1.4;
+}

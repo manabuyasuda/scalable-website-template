@@ -1,0 +1,138 @@
+ /* #formInput
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-formInput
+category: Atoms
+tag: Form
+---
+
+`type="input"`のデフォルトスタイルです。`<input>`タグには`id`属性を、`<label>`タグには`for`属性を指定して紐付けてください。`<input>`タグには適切な`type`属性を指定してください。
+
+- `type="text"`：一行テキストボックスを作成する
+- `type="search"`：検索テキストの入力欄を作成す
+- `type="tel"`：電話番号の入力欄を作成する
+- `type="email"`：メールアドレスの入力欄を作成する
+- `type="password"`：パスワード入力欄を作成する
+- `type="number"`：数値の入力欄を作成する
+
+ブラウザの自動入力機能をオンにするために`autocomplete`属性に該当する項目があれば指定してください。[HTML Standard](https://momdo.github.io/html/forms.html#autofilling-form-controls:-the-autocomplete-attribute)を参照。
+
+- `autocomplete="name"`：姓名（フルネーム）
+- `autocomplete="email"`：メールアドレス
+- `autocomplete="current-password"`：現在のパスワード
+- `autocomplete="new-password"`：新しいパスワード
+- `autocomplete="postal-code"`：郵便番号
+- `autocomplete="street-address"`：住所
+- `autocomplete="address-level1"`：都道府県
+- `autocomplete="address-level2"`：市区町村
+- `autocomplete="address-line1"`：番地・マンション名（1行目）
+- `autocomplete="address-line2"`：番地・マンション名（2行目）
+- `autocomplete="tel"`：郵便番号
+- `autocomplete="organization"`：会社名
+
+```jade
+label.a-formInput_textTop(for="name1") 氏名
+input.a-formInput(type="text" name="name" autocomplete="name" id="name1" placeholder="例：山田 太郎")
+```
+
+```jade
+label.a-formInput_textTop(for="search1") 検索
+input.a-formInput(type="search" name="search" id="search1" placeholder="例：キーワード1 キーワード2")
+```
+
+```jade
+label.a-formInput_textTop(for="tel1") 電話番号
+input.a-formInput(type="tel" name="tel" id="tel1" autocomplete="tel" placeholder="例：0120-123-456")
+```
+
+```jade
+label.a-formInput_textTop(for="email1") メールアドレス
+input.a-formInput(type="email" name="email" autocomplete="email" id="email1" placeholder="例：example@gmail.com")
+```
+
+```jade
+label.a-formInput_textTop(for="password1") 現在のパスワード
+input.a-formInput(type="password" name="password" autocomplete="current-password" id="password1")
+
+label.a-formInput_textTop(for="password2") 新しいのパスワード
+input.a-formInput(type="password" name="password" autocomplete="new-password" id="password2")
+```
+
+```jade
+label.a-formInput_textTop(for="postal-code1") 郵便番号
+input.a-formInput(type="number" name="postal-code" autocomplete="postal-code" id="postal-code1")
+```
+
+```jade
+input.a-formInput(type="text" name="name" autocomplate="name" id="input2")
+label.a-formInput_textBottom(for="input2") inputタグの説明です
+```
+
+非活性状態です。`disabled`属性を指定します。
+
+```jade
+label.a-formInput_textTop(for="input3") inputタグの説明です
+input.a-formInput(type="text" id="input3" placeholder="disabled" disabled)
+```
+
+`a-formInput()`mixinでスタイルを継承することができます。
+
+```scss
+.anotherInput {
+  @include a-formInput();
+}
+```
+*/
+@mixin a-formInput() {
+  box-sizing: border-box;
+  width: 100%;
+  height: 42px;
+  padding: 0 1em;
+  border: 1px solid #d0d0d0;
+  border-radius: $form-border-radius;
+  font-size: 16px;
+  vertical-align: middle;
+  background-color: #fff;
+  appearance: none;
+  box-shadow: 1px 1px 6px -3px #9e9e9e inset;
+
+  /**
+   * Normalize.cssのリセットをします。
+   */
+  &[type="search"] {
+    box-sizing: border-box;
+    appearance: none;
+  }
+
+  &::placeholder {
+    color: $form-placeholder-color;
+    font-size: $font-size-secondary;
+  }
+
+  &:focus {
+    outline: 0;
+    border-color: $form-focus-border-color;
+    box-shadow: $form-focus-box-shadow;
+  }
+
+  &:disabled {
+    opacity: $form-disabled-opacity;
+    background-color: $form-disabled-background-color;
+    cursor: $form-disabled-cursor;
+  }
+}
+
+.a-formInput {
+  @include a-formInput();
+}
+
+.a-formInput_textTop {
+  display: inline-block;
+  margin-bottom: 0.25em;
+}
+
+.a-formInput_textBottom {
+  display: inline-block;
+  margin-top: 0.25em;
+}

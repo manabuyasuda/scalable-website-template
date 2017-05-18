@@ -1,0 +1,40 @@
+ /* #buttonSearch
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-buttonSearch
+category: Atoms
+tag: [Button, Form]
+---
+
+検索ボタンです。`<button>`タグで指定します。
+
+```jade
+button.a-buttonSearch(type="submit" value="検索") buttonタグボタン
+```
+
+非活性状態です。`disabled`属性を指定します。
+
+```jade
+button.a-buttonSearch(type="submit" value="検索" disabled) buttonタグボタン
+```
+
+クリック、タップ、キーボード操作（Macの場合は、tabやtab + shiftでフォーカスの移動、spaceでオンオフなど）で正常に動作することを確認してください。
+*/
+.a-buttonSearch {
+  @include a-button();
+  border-color: #5e5e5e;
+  color: #fff;
+  background-color: #5e5e5e;
+
+  /**
+   * `disabled`属性が指定されていない場合のマウスオーバーやフォーカス時のスタイル。
+   */
+  &:not([disabled]) {
+    @include onEvent() {
+      opacity: $opacity;
+      transition-timing-function: $transition-timing-function;
+      transition-duration: $transition-duration;
+    }
+  }
+}

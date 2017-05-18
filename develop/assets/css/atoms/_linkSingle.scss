@@ -1,0 +1,38 @@
+ /* #linkSingle
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-linkSingle
+category: Atoms
+tag: Link
+---
+
+文章の中ではない単独のテキストリンクのスタイルです。
+
+```jade
+ul
+  li: a.a-linkSingle(href="#") 単独のテキストリンクです
+  li: a.a-linkSingle(href="#") 単独のテキストリンクです
+```
+
+`a-link()`mixinでスタイルを継承することができます。
+
+```scss
+.anotherLinkSIngle {
+  @include a-linkSingle();
+}
+```
+*/
+@mixin a-linkSingle() {
+  color: $color-link;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-link-hover;
+    text-decoration: underline;
+  }
+}
+
+.a-linkSingle {
+  @include a-linkSingle();
+}

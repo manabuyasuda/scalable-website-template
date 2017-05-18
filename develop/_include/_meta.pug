@@ -1,0 +1,38 @@
+meta(charset="UTF-8")
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+meta(name="viewport" content="width=device-width, initial-scale=1")
+meta(name="format-detection" content="telephone=no")
+if pageTitle
+  title #{pageTitle} | #{site.name}
+else
+  title #{site.name}
+meta(name="description" content=pageDescription)
+if pageKeywords
+  meta(name="keywords" content=pageKeywords)
+
+block css
+  link(rel="stylesheet" href="/assets/css/common.css")
+
+//- OGP
+if pageOgpTitle
+  meta(property="og:title" content=pageOgpTitle + ' | ' + site.name)
+else
+  meta(property="og:title" content=site.name)
+meta(property="og:type" content=pageOgpType)
+meta(property="og:image" content=pageOgpImage)
+meta(property="og:url" content=site.rootUrl + pageRootPath)
+meta(property="og:description" content=pageDescription)
+meta(property="og:site_name" content=site.name)
+meta(property="og:locale" content=pageLang)
+
+link(rel="canonical" href=site.rootUrl + pageRootPath)
+
+if site.fbAppId
+  meta(property="fb:app_id" content=site.fbAppId)
+else if site.fbAdmins
+  meta(property="fb:admins" content=site.fbAdmins)
+
+if site.twitterCard
+  meta(name="twitter:card" content=site.twitterCard)
+if site.twitterSite
+  meta(name="twitter:site" content=site.twitterSite)

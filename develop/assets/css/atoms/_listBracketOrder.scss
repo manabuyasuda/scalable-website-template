@@ -1,0 +1,30 @@
+ /* #listBracketOrder
+   -------------------------------------------------------------------------- */
+/*doc
+---
+name: a-listBracketOrder
+category: Atoms
+tag: List
+---
+
+括弧で囲んだ順序リストです。
+
+```jade
+ul.a-listBracketOrder
+  li リストです
+  li リストです
+```
+*/
+.a-listBracketOrder {
+  padding-left: 0;
+  list-style-type: none;
+
+  li {
+    counter-increment: bracketOrder;
+  }
+
+  li:before {
+    content: "(" counter(bracketOrder) ")";
+    margin-right: 0.25em;
+  }
+}
